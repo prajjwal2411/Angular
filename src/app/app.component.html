@@ -1,0 +1,33 @@
+<div class="container col-8">
+    <div>
+      <h3>Employee Details</h3>
+    </div>
+
+    <div>
+      <label class="form-label" for="name-of-employee">Name</label>
+      <input class="form-control" [(ngModel)]="empName" type="text" placeholder="Name of Employee">
+      <br>
+      <label class="form-label" for="number-of-employee">Number</label>
+      <input class="form-control" [(ngModel)]="empNum" type="text" placeholder="Number of Employee">
+      <br>
+      <button type="button" class="btn btn-primary" (click)=register(empName,empNum) >Submit</button>
+    </div>
+    <br>
+    <table class="table-bordered">
+      
+      <tr>
+        <th>S.No.</th>
+        <th>Name of Employee</th>
+        <th>Employee Number</th>
+        <th>Delete Employee</th>
+      </tr>
+      
+      <tr *ngFor="let detail of listOfEmployees; let i = index;" [ngStyle]="{'background-color':(!(detail.Code%2))?'green':'red'}">
+        <td>{{detail.id}}</td>
+        <td>{{detail.Name}}</td>
+        <td>{{detail.Code}}</td>
+        <td class="p-2" ><button type="button" class="btn btn-dark" (click)=remove(i)>Delete</button></td>
+      </tr>
+
+    </table>
+</div>
